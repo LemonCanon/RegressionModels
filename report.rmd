@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: "Ryan Porter"
+date: "August 2, 2016"
+output: pdf_document
+---
+##Introduction
+
+In this analysis I will be looking at the relationship between the factors in the mtcars database. In particular the relationship between mpg in standard and automatic cars.
+
+##Exploritory Analysis
+
+```{r}
+#load in the mtcars data
+data("mtcars")
+str(mtcars)
+?mtcars
+
+```
+The am variable is the type of trasmission (0 = automatic, 1 = manual) and the mpg variable is the miles/gallon of the car. I would like to first suppose a linear model where mpg ~ beta0 + beta1*am 
+
+```{r}
+fit1 <- lm(mpg ~ am, data = mtcars)
+fit1$coeff
+
+library(ggplot2)
+g <- ggplot(data = mtcars, aes(mpg))
+g + geom_histogram() + facet_grid(.~am)
+
+```
