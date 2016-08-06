@@ -24,11 +24,7 @@ fit1 <- lm(mpg ~ am, data = mtcars)
 fit1$coeff
 
 library(ggplot2)
-g <- ggplot(data = mtcars, aes(x = am, y = mpg))
-g + geom_point() + geom_smooth(method = "lm", se = FALSE)
+g <- ggplot(data = mtcars, aes(mpg))
+g + geom_histogram() + facet_grid(.~am)
 
 ```
-
-From this initial look at the data, it apears that mpg appears lower in the automatic cars. That is of course is not adjusting for any of the other factors. Looking at the help file I think I will see what wt (weight) and cyl (cylinders) will add to the model. 
-
-
